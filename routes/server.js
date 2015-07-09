@@ -22,7 +22,7 @@ app.get('/scrape', function(req, res){
                         var title = $(this).find('h3').text();
                         json.title = title;
                         console.log(title);
-                        eventList.push(json);
+                        //eventList.push(json);
 
                         var eventInfo =  $(this).find('strong').text();
                         json.eventInfo = eventInfo;
@@ -33,9 +33,14 @@ app.get('/scrape', function(req, res){
             fs.writeFile('eventsData.json', JSON.stringify(eventList, null, 4), function(err){
                 console.log('File successfully written! - Check your project directory for the eventsData.json file');
             });
-    //app does not have a UI.
-            res.send('Check console!')
+
+            res.set("Access-Control-Allow-Origin", '*');
+
+            //res.send('Check console!');
+            res.end(JSON.stringify(eventList));
         }) ;
+
+
 });
 
 app.listen('8090');
