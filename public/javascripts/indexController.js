@@ -1,13 +1,16 @@
 ////console.log("indexController.js Loaded");
-var myApp = angular.module('myApp',[]);
+var myApp = angular.module('myApp',['ngRoute']);
 
 myApp.config(['$routeProvider', function ($routeProvider){
     $routeProvider.
         when('/',{
-            templateUrl: "/views/main.html"
-        }).
-        when('/headBarTwo',{
             templateUrl: "/views/list.html"
+        }).
+        when('/list',{
+            templateUrl: "/views/list.html"
+        }).
+        when('/grid',{
+            templateUrl: "/views/grid.html"
         }).
         otherwise({
             redirectTo: '/'
