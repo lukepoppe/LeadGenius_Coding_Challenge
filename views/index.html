@@ -25,20 +25,20 @@
 
 
 
+        <div ng-controller="AngularJSCtrl">
 
 
 
-
-        <form name="myForm" form ng-submit="submit()" ng-controller="ExampleController">
+        <form name="myForm" form ng-submit="submit()">
             <label>URL:
-                <input type="url" name="input" ng-model="url.text" required>
+                <input ng-model="url" type="url" name="input"  required>
                 <input type="submit" id="submit" value="Submit" />
                 <label>
                     <div role="alert">
-    <span class="error" ng-show="myForm.input.$error.required">
-      Required!</span>
-    <span class="error" ng-show="myForm.input.$error.url">
-      Not valid url!</span>
+                        <span class="error" ng-show="myForm.input.$error.required">
+                          Required!</span>
+                            <span class="error" ng-show="myForm.input.$error.url">
+                              Not valid url!</span>
                     </div>
                     </label>
                 </label>
@@ -46,9 +46,6 @@
 
 
 
-
-
-        <div ng-controller="AngularJSCtrl">
         <div ng-view></div>
 
         </div>

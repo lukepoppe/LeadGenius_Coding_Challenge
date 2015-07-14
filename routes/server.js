@@ -7,11 +7,11 @@ var app     = express();
 
 app.get('/scrape', function(req, res){
     var eventList =[];
-    url = 'http://events.stanford.edu/2014/October/1/';
+    //url = 'http://events.stanford.edu/2014/October/1/';
 
 
-
-        request(url, function(error, response, html){
+console.log("req URL: " + req.query.url);
+        request(req.query.url, function(error, response, html){
             if(!error){
                 var $ = cheerio.load(html);
                 //var title, eventInfo;
@@ -31,6 +31,7 @@ app.get('/scrape', function(req, res){
                 });
             }
             fs.writeFile('eventsData.json', JSON.stringify(eventList, null, 4), function(err){
+                if (err) console.log(err);
                 console.log('File successfully written! - Check your project directory for the eventsData.json file');
             });
 

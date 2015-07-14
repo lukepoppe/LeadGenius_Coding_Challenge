@@ -19,23 +19,22 @@ myApp.config(['$routeProvider', function ($routeProvider){
 
 myApp.controller('AngularJSCtrl', function($scope, dataService) {
     //$scope.eventList = dataService.getData();
-    dataService.getData().then(function(data){
-       $scope.eventList = data.data;
-    });
+    $scope.eventList = [];
+    //$scope.url = myForm.input.baseURI;
+    $scope.submit = function() {
+        if ($scope.url) {
+            dataService.getData($scope.url).then(function(data){
+                $scope.eventList = data.data;
+                $scope.url ="";
+            });
+        }
+    };
     //console.log($scope.eventList);
     //console.log("dataservice");
 });
 
-myApp.controller('ExampleController', ['$scope', function($scope) {
-    $scope.list = [];
-    $scope.text = myForm.input.baseURI;
-    $scope.submit = function() {
-        if ($scope.text) {
-            $scope.list.push(this.text);
-            $scope.text = '';
-            console.log(this.list);
-        }
-    };
-}]);
+//myApp.controller('ExampleController', ['$scope', function($scope) {
+//
+//}]);
 
 ////then reference with controller
