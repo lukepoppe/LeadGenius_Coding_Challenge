@@ -5,7 +5,10 @@ myApp.service('dataService', function($http) {
         this.getData = function() {
             return $http.get('http://localhost:8090/scrape')
             }
+
 });
+
+
 
 ///keep data on service
 

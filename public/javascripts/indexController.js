@@ -22,10 +22,20 @@ myApp.controller('AngularJSCtrl', function($scope, dataService) {
     dataService.getData().then(function(data){
        $scope.eventList = data.data;
     });
-    console.log($scope.eventList);
-    console.log("dataservice");
-
+    //console.log($scope.eventList);
+    //console.log("dataservice");
 });
 
+myApp.controller('ExampleController', ['$scope', function($scope) {
+    $scope.list = [];
+    $scope.text = myForm.input.baseURI;
+    $scope.submit = function() {
+        if ($scope.text) {
+            $scope.list.push(this.text);
+            $scope.text = '';
+            console.log(this.list);
+        }
+    };
+}]);
 
 ////then reference with controller
