@@ -16,18 +16,45 @@ console.log("req URL: " + req.query.url);
                 var $ = cheerio.load(html);
                 //var title, eventInfo;
 
-                    $('.postcard-text').each(function(){
-                        var json = { title : "", eventInfo : ""};
 
+                    $('.postcard-text').each(function() {
+                        var json = {title: "", eventInfo: ""};
                         var title = $(this).find('h3').text();
                         json.title = title;
                         console.log(title);
                         //eventList.push(json);
 
-                        var eventInfo =  $(this).find('strong').text();
+                        var eventInfo = $(this).find('strong').text();
+
                         json.eventInfo = eventInfo;
                         console.log(eventInfo);
                         eventList.push(json);
+                    });
+                        $('.js-search-result-click-action').each(function () {
+                            var json = {title: "", eventInfo: ""};
+                            var title = $(this).find('.event-card__description').text();
+                            json.title = title;
+                            console.log(title);
+                            //eventList.push(json);
+
+                            var eventInfo = $(this).find('.event-card__details').first().text();
+                            json.eventInfo = eventInfo;
+                            console.log("eventinfo: " + eventInfo);
+                            eventList.push(json);
+
+                    });
+                $('.js-search-result-click-action').each(function () {
+                    var json = {title: "", eventInfo: ""};
+                    var title = $(this).find('.event-card__description').text();
+                    json.title = title;
+                    console.log(title);
+                    //eventList.push(json);
+
+                    var eventInfo = $(this).find('.event-card__details').first().text();
+                    json.eventInfo = eventInfo;
+                    console.log("eventinfo: " + eventInfo);
+                    eventList.push(json);
+
                 });
             }
             fs.writeFile('eventsData.json', JSON.stringify(eventList, null, 4), function(err){
