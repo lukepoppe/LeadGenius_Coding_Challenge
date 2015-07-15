@@ -20,42 +20,61 @@ console.log("req URL: " + req.query.url);
                     $('.postcard-text').each(function() {
                         var json = {title: "", eventInfo: ""};
                         var title = $(this).find('h3').text();
-                        json.title = title;
-                        console.log(title);
-                        //eventList.push(json);
-
+                        if (title != "") {
+                            json.title = title;
+                            console.log(title);
+                        }
                         var eventInfo = $(this).find('strong').text();
+                        if (eventInfo != "") {
+                            json.eventInfo = eventInfo;
+                            console.log(eventInfo);
+                            eventList.push(json);
+                            }
+                        });
 
-                        json.eventInfo = eventInfo;
-                        console.log(eventInfo);
-                        eventList.push(json);
-                    });
                         $('.js-search-result-click-action').each(function () {
                             var json = {title: "", eventInfo: ""};
                             var title = $(this).find('.event-card__description').text();
-                            json.title = title;
-                            console.log(title);
-                            //eventList.push(json);
-
+                            if (title != "") {
+                                json.title = title;
+                                console.log(title);
+                            }
                             var eventInfo = $(this).find('.event-card__details').first().text();
+                            if (eventInfo != "") {
+                                json.eventInfo = eventInfo;
+                                console.log("eventinfo: " + eventInfo);
+                                eventList.push(json);
+                            }
+                        });
+
+                        $('.mod').each(function () {
+                            var json = {title: "", eventInfo: ""};
+                            var title = $(this).find('.title').text();
+                            if (title != "") {
+                                json.title = title;
+                                console.log(title);
+                            }
+                            var eventInfo = $(this).find('.date').first().text();
+                            if (eventInfo != "") {
+                                json.eventInfo = eventInfo;
+                                console.log("eventinfo: " + eventInfo);
+                                eventList.push(json);
+                            }
+                        });
+
+                        $('.event-listing').each(function () {
+                            var json = {title: "", eventInfo: ""};
+                            var title = $(this).find('.event-title').text();
+                            if (title != "") {
+                                json.title = title;
+                                console.log(title);
+                            }
+                            var eventInfo = $(this).find('.list-time').text();
                             json.eventInfo = eventInfo;
                             console.log("eventinfo: " + eventInfo);
                             eventList.push(json);
+                        });
 
-                    });
-                $('.js-search-result-click-action').each(function () {
-                    var json = {title: "", eventInfo: ""};
-                    var title = $(this).find('.event-card__description').text();
-                    json.title = title;
-                    console.log(title);
-                    //eventList.push(json);
-
-                    var eventInfo = $(this).find('.event-card__details').first().text();
-                    json.eventInfo = eventInfo;
-                    console.log("eventinfo: " + eventInfo);
-                    eventList.push(json);
-
-                });
             }
             fs.writeFile('eventsData.json', JSON.stringify(eventList, null, 4), function(err){
                 if (err) console.log(err);
