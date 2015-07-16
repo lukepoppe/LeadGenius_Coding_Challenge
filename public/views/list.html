@@ -1,7 +1,10 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-sm-12 panel panel-default" ng-repeat ="item in eventList">
-            <div class="panel-body">{{item.eventInfo}} | {{item.title}}</div>
+        <div class="results col-md-8 col-sm-8 panel panel-default" ng-repeat ="item in eventList">
+            <div class="panel-body">
+                <div class="resultsInfo">{{item.eventInfo}}</div>
+                <div class="resultsTitle">{{item.title}}</div>
+            </div>
         </div>
     </div>
 </div>

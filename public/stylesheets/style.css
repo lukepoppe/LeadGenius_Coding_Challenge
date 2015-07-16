@@ -1,12 +1,21 @@
 body {
   background-color: #e1e1e1;
-  color:#444;
+  color: #444;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.jumbotron{
+  text-align: center;
+
+}
+.jumbotron h1 {
+  color: #CC8CE3;
 }
 
-.fa {
-  /*color:#fff;*/
+.resultsInfo{
+  font-weight: 900;
+  text-underline: 2px;
 }
-
 #userList {
   display:none;
 }
@@ -18,6 +27,7 @@ body {
   text-align:center;
   top:40%;
 }
-.results{
-  border-color: purple;
+.results.col-md-8.col-sm-8, .results.col-md-4.col-sm-6  {
+  border-color: #CC8CE3;
+  border-width: 2px;
 }

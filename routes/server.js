@@ -32,33 +32,33 @@ console.log("req URL: " + req.query.url);
                             }
                         });
 
-                        $('.js-search-result-click-action').each(function () {
-                            var json = {title: "", eventInfo: ""};
-                            var title = $(this).find('.event-card__description').text();
-                            if (title != "") {
-                                json.title = title;
-                                console.log(title);
-                            }
-                            var eventInfo = $(this).find('.event-card__details').first().text();
-                            if (eventInfo != "") {
-                                json.eventInfo = eventInfo;
-                                console.log("eventinfo: " + eventInfo);
-                                eventList.push(json);
+                    $('.js-search-result-click-action').each(function () {
+                        var json = {title: "", eventInfo: ""};
+                        var title = $(this).find('.event-card__description').text();
+                        if (title != "") {
+                            json.title = title;
+                            console.log(title);
+                        }
+                        var eventInfo = $(this).find('.event-card__details').first().text();
+                        if (eventInfo != "") {
+                            json.eventInfo = eventInfo;
+                            console.log("eventinfo: " + eventInfo);
+                            eventList.push(json);
                             }
                         });
 
-                        $('.mod').each(function () {
-                            var json = {title: "", eventInfo: ""};
-                            var title = $(this).find('.title').text();
-                            if (title != "") {
-                                json.title = title;
-                                console.log(title);
-                            }
-                            var eventInfo = $(this).find('.date').first().text();
-                            if (eventInfo != "") {
-                                json.eventInfo = eventInfo;
-                                console.log("eventinfo: " + eventInfo);
-                                eventList.push(json);
+                    $('.mod').each(function () {
+                        var json = {title: "", eventInfo: ""};
+                        var title = $(this).find('.title').text();
+                        if (title != "") {
+                            json.title = title;
+                            console.log(title);
+                        }
+                        var eventInfo = $(this).find('.date').first().text();
+                        if (eventInfo != "") {
+                            json.eventInfo = eventInfo;
+                            console.log("eventinfo: " + eventInfo);
+                            eventList.push(json);
                             }
                         });
 
