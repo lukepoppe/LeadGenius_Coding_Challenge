@@ -11,11 +11,17 @@ body {
 .jumbotron h1 {
   color: #CC8CE3;
 }
-
-.resultsInfo{
+.resultsDate{
+  font-size: 12px;
+}
+.resultsDayOfWeek, .resultsTime{
   font-weight: 900;
   text-underline: 2px;
 }
+.resultsDayOfWeek, .resultsDate,  {
+  text-align: center;
+}
+
 #userList {
   display:none;
 }
@@ -30,4 +36,14 @@ body {
 .results.col-md-8.col-sm-8, .results.col-md-4.col-sm-6  {
   border-color: #CC8CE3;
   border-width: 2px;
+}
+.resultsTitle{
+  font-size: 18px;
+}
+
+.resultsDayOfWeek{
+  font-size: 16px;
+}
+.panel-body{
+  padding: 0px;
 }

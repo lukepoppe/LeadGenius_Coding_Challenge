@@ -2,9 +2,18 @@
     <div class="row">
         <div class="results col-md-4 col-sm-6 panel panel-default" ng-repeat="item in eventList">
             <div class="panel-body">
-                <div class="resultsInfo">{{item.eventInfo}}</div>
-                <div class="resultsTitle">{{item.title}}</div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1 col-sm-1">
+                            <div class="resultsDayOfWeek">{{item.eventDayOfWeek}}</div>
+                            <div class="resultsTime">{{item.eventTime}}</div>
+
+                        </div>
+                        <div class="col-md-2 col-sm-5">
+                            <div class="resultsDate">{{item.eventDate}}</div>
+                            <div class="resultsTitle">{{item.title}}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
