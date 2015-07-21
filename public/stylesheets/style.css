@@ -18,7 +18,7 @@ body {
   font-weight: 900;
   text-underline: 2px;
 }
-.resultsDayOfWeek, .resultsDate,  {
+ .resultsDayOfWeek, .resultsTime{
   text-align: center;
 }
 
