@@ -111,46 +111,47 @@ $('.event-listing').each(function () {
     }
 });
 //eventbrite search
-$('.js-search-result-click-action').each(function () {
-    var json = {title: "", eventDayOfWeek:"", eventDate:"", eventTime:""};
-    var title = $(this).find('.event-card__header').text();
-    if (title != "") {
-        json.title = title;
-        console.log(title);
-    }
-    var eventDayOfWeekA = $(this).find('.event-card__details').text();
-    if (title != "") {
-        json.eventDayOfWeek = eventDayOfWeekA.slice(25,28);
+                $('.js-search-result-click-action').each(function () {
+                    var json = {title: "", eventDayOfWeek:"", eventDate:"", eventTime:""};
+                    var title = $(this).find('.event-card__header').text();
+                    if (title != "") {
+                        json.title = title;
+                        console.log(title);
+                    }
+                    var eventDayOfWeekA = $(this).find('.event-card__details').text();
+                    if (title != "") {
+                        json.eventDayOfWeek = eventDayOfWeekA.slice(25,28);
 
-    }
-    var eventInfoAmpm1 = $(this).find('span.event-card__details').text();
-    var am = " AM";
-    var pm = " PM";
-    var eventInfoAmpm2;
-    if (eventInfoAmpm1.indexOf(am)!== -1){
-        eventInfoAmpm2 = "AM";
-    } else if (eventInfoAmpm1.indexOf(pm)!== -1){
-        eventInfoAmpm2 = "PM";
-    }
+                    }
+                    var eventInfoAmpm1 = $(this).find('span.event-card__details').text();
+                    var am = " AM";
+                    var pm = " PM";
+                    var eventInfoAmpm2;
+                    if (eventInfoAmpm1.indexOf(am)!== -1){
+                        eventInfoAmpm2 = "AM";
+                    } else if (eventInfoAmpm1.indexOf(pm)!== -1){
+                        eventInfoAmpm2 = "PM";
+                    }
 
 
-    var eventInfoA = $(this).find('.event-card__details').attr('content');
-    if (eventInfoA != "") {
-        eventInfoA = eventInfoA.replace("T", " ");
-        eventInfoA = eventInfoA.replace(":00-", "- ");
-        var eventInfoMonth = eventInfoA.slice(5,7);
-        var eventInfoDay = eventInfoA.slice(8,10);
-        var eventInfoYear = eventInfoA.slice(0,4);
-        var eventTime = eventInfoA.slice(-12);
-        //var eventTimePreview = eventTime.slice(0,5);
+                    var eventInfoA = $(this).find('.event-card__details').attr('content');
+                    if (eventInfoA != "") {
+                        eventInfoA = eventInfoA.replace("T", " ");
+                        eventInfoA = eventInfoA.replace(":00-", "- ");
+                        var eventInfoMonth = eventInfoA.slice(5,7);
+                        var eventInfoDay = eventInfoA.slice(8,10);
+                        var eventInfoYear = eventInfoA.slice(0,4);
+                        var eventTime = eventInfoA.slice(-12,-7 );
+                        var eventTimeA = moment(eventTime, ["H:mm"]).format("hh:mm");
 
-        json.eventDate = eventInfoMonth + "-" + eventInfoDay + "-" + eventInfoYear + ".  " + eventTime + eventInfoAmpm2;
-        json.eventTime = eventInfoDay;
-        console.log(eventInfoA);
 
-        eventList.push(json);
-        }
-});
+                        json.eventDate = eventInfoMonth + "-" + eventInfoDay + "-" + eventInfoYear + ".  " + eventTimeA + eventInfoAmpm2;
+                        json.eventTime = eventInfoDay;
+                        console.log(eventInfoA);
+
+                        eventList.push(json);
+                    }
+                });
 //sfmoma homepage
 $('.bd').each(function () {
     var json = {title: "", eventDayOfWeek:"", eventDate:"", eventTime:""};
@@ -168,6 +169,7 @@ $('.bd').each(function () {
         var eventInfoYear = eventInfoA.slice(0, 4);
         var eventTime = eventInfoA.slice(-4);
         var eventDate = eventInfoMonth + "-" + eventInfoDay + "-" + eventInfoYear;
+
 
         var eventInfoC = $(this).find('span.date').text();
         var eventInfoB ="";
@@ -189,27 +191,25 @@ $('.bd').each(function () {
             eventInfoB = null;
         }
 
-    }
-    var eventInfoD = $(this).find('abbr.dtend').attr('title');
-    if (eventInfoD != undefined) {
+        var eventInfoD = $(this).find('abbr.dtend').attr('title');
+        if (eventInfoD != undefined) {
         eventInfoD = eventInfoD.replace("T", " ");
         eventInfoD = eventInfoD.replace("00:00", " ");
-        var eventInfoMonthD = eventInfoA.slice(5, 7);
-        var eventInfoDayD = eventInfoA.slice(8, 10);
-        var eventInfoYearD = eventInfoA.slice(0, 4);
-        var eventTimeD = eventInfoA.slice(-4);
+        var eventInfoMonthD = eventInfoD.slice(5, 7);
+        var eventInfoDayD = eventInfoD.slice(8, 10);
+        var eventInfoYearD = eventInfoD.slice(0, 4);
         var eventDateD = eventInfoMonthD + "-" + eventInfoDayD + "-" + eventInfoYearD;
 
     }
     if (title !== "" && eventDate !== undefined && eventTime !== undefined && eventInfoB != null) {
-        json.eventDate = eventDate + " to " +eventDateD + " @ " +eventTime;
+        json.eventDate = eventDate + " @ " +eventTime;
         json.eventDayOfWeek = eventInfoB;
         json.title = title;
         json.eventTime = eventInfoDay;
-
-
         console.log(eventInfoA);
         eventList.push(json);
+    }
+
     }
     });
 //sfmoma search calendar
@@ -220,6 +220,8 @@ $('.with-image ').each(function () {
             json.title = title;
             console.log(title);
             }
+    var eventInfoFindTime = $(this).find('span.time').text();
+
     var eventInfoC = $(this).find('span.date').text();
     var eventInfoB ="";
     if (eventInfoC.indexOf("Sunday") != -1) {
@@ -251,7 +253,7 @@ $('.with-image ').each(function () {
 
             if (title !== "" && eventInfoB !== null && eventTime !== undefined) {
                 json.eventDayOfWeek = eventInfoB;
-                json.eventDate = eventInfoMonth + "-" + eventInfoDay + "-" + eventInfoYear + " @ " + eventTime;
+                json.eventDate = eventInfoMonth + "-" + eventInfoDay + "-" + eventInfoYear + " | " + eventInfoFindTime;
                 json.eventTime = eventInfoDay;
                 console.log(eventInfoA);
                 eventList.push(json);
