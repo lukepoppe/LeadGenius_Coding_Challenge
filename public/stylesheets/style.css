@@ -40,6 +40,10 @@ body {
 .resultsTitle{
   font-size: 18px;
 }
+.resultsDate{
+color: grey;
+
+}
 /*.resultsDate{*/
   /*color: white;*/
 
