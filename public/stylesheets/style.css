@@ -16,7 +16,7 @@ body {
 }
 .resultsDayOfWeek, .resultsTime{
   font-weight: 900;
-  text-underline: 2px;
+
 }
  .resultsDayOfWeek, .resultsTime{
   text-align: center;
@@ -40,13 +40,27 @@ body {
 .resultsTitle{
   font-size: 18px;
 }
+/*.resultsDate{*/
+  /*color: white;*/
 
-.resultsDayOfWeek{
-  font-size: 12px;
-}
-.resultsTime{
-  font-size: 16px;
-}
-.panel-body{
-  padding: 0px;
-}
+/*}*/
+
+/*.resultsDayOfWeek{*/
+  /*font-size: 12px;*/
+  /*color: white;*/
+
+/*}*/
+/*.resultsTime{*/
+  /*font-size: 16px;*/
+  /*color: white;*/
+
+/*}*/
+/*.panel-body{*/
+  /*padding: 0px;*/
+/*}*/
+/*.results{*/
+  /*background-color: #291C2D;*/
+/*}*/
+/*.resultsTitle{*/
+  /*color:#CC8CE3;*/
+/*}*/
