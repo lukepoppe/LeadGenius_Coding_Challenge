@@ -32,9 +32,3 @@ myApp.controller('AngularJSCtrl', function($scope, dataService) {
     //console.log($scope.eventList);
     //console.log("dataservice");
 });
-
-//myApp.controller('ExampleController', ['$scope', function($scope) {
-//
-//}]);
-
-////then reference with controller
