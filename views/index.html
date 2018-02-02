@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 <head>
-    <title>LeadGenius Coding Challenge</title>
-
+    <title>Node Web Scraper</title>
     <script src="/vendor/angular/angular.min.js"></script>
     <script src="/vendor/angular-route/angular-route.min.js"></script>
-    <script src="/vendor/moment/moment.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/javascripts/indexController.js"></script>
     <script src="/javascripts/indexService.js"></script>
-    <script src="/javascripts/testScript.js"></script>
 </head>
 <body>
 <div ng-controller="AngularJSCtrl">
     <div class="jumbotron">
-        <h1>Web Scraper Challenge</h1>
+        <h1>Web Scraper</h1>
         <p>Enter URL of desired website below</p>
-        <form name="myForm" form ng-submit="submit()">
+        <form name="searchBar" form ng-submit="submit()">
             <label>URL:
                 <input ng-model="url" type="url" name="input"  required>
                 <input type="submit" id="submit" value="Submit" />
                 <label>
                     <div role="alert">
-                        <span class="error" ng-show="myForm.input.$error.required">
+                        <span class="error" ng-show="searchBar.submitted && searchBar.input.$error.required">
                           Required!</span>
-                            <span class="error" ng-show="myForm.input.$error.url">
+                            <span class="error" ng-show="asearchBar.input.$error.url">
                               Not valid url!</span>
                     </div>
                 </label>
@@ -38,7 +35,6 @@
         <ul class="nav nav-pills pull-left">
             <li ng-class="{'active':mode==1}" title="list"><a href="#list" ng-click="mode=1"><i class="fa fa-list fa-4x"></i>list</a></li>
             <li ng-class="{'active':mode==2}" title="grid"><a href="#grid" ng-click="mode=2"><i class="fa fa-th fa-4x"></i>grid</a></li>
-
         </ul>
     </div>
         <div ng-view></div>

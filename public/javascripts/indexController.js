@@ -1,4 +1,3 @@
-////console.log("indexController.js Loaded");
 var myApp = angular.module('myApp',['ngRoute']);
 
 myApp.config(['$routeProvider', function ($routeProvider){
@@ -18,9 +17,7 @@ myApp.config(['$routeProvider', function ($routeProvider){
 }]);
 
 myApp.controller('AngularJSCtrl', function($scope, dataService) {
-    //$scope.eventList = dataService.getData();
     $scope.eventList = [];
-    //$scope.url = myForm.input.baseURI;
     $scope.submit = function() {
         if ($scope.url) {
             dataService.getData($scope.url).then(function(data){
@@ -29,6 +26,4 @@ myApp.controller('AngularJSCtrl', function($scope, dataService) {
             });
         }
     };
-    //console.log($scope.eventList);
-    //console.log("dataservice");
 });

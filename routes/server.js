@@ -10,7 +10,6 @@ moment().format();
 
 app.get('/scrape', function(req, res){
   var eventList =[];
-  console.log("req URL: " + req.query.url);
   request(req.query.url, function(error, response, html){
       if(!error){
         let $ = cheerio.load(html);
